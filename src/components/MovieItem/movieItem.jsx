@@ -3,15 +3,15 @@ import { nanoid } from 'nanoid';
 const MovieItem = ({ movie }) => {
   const { original_title, genres, poster_path, vote_average, overview } = movie;
   const poster = poster_path
-    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+    ? `https://image.tmdb.org/t/p/w300/${poster_path}`
     : '';
   return (
     <div style={{ display: 'Flex' }}>
       <div>
-        <img src={poster} style={{ width: '200px' }} alt="OUPS" />
+        <img src={poster}  alt="NO poster" />
       </div>
       <div style={{ display: 'block', marginLeft: '20px' }}>
-        <h3>{original_title}</h3>
+        <h2>{original_title}</h2>
         <ul>
           <li>Average: {vote_average}</li>
           <li>Overview: {overview}</li>

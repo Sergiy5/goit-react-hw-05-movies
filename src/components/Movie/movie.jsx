@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { getMovieById } from "utils/searchDataMovie";
 import MovieItem from "../MovieItem/movieItem";
-import AdditionalInformatione from "../AdditionalInformatione/additionalInformatione"
 
 const Movie = () => {
   const [movie, setMovie] = useState(null);
@@ -20,7 +19,18 @@ const Movie = () => {
     <div>
       <div> {movie ? <MovieItem movie={movie} /> : ''}</div>
       <div>
-        <AdditionalInformatione />
+        <div>
+          <h4>Additional Information</h4>
+          <ul>
+            <li>
+              <Link to={'cast'}>Cast</Link>
+            </li>
+            <li>
+              <Link to={'reviews'}>Reviews</Link>
+            </li>
+          </ul>
+        </div>
+        <Outlet />
       </div>
     </div>
   );

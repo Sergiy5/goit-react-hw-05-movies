@@ -4,7 +4,8 @@
   const BASE_URL = 'https://api.themoviedb.org/3';
   const TREND_URL = `${BASE_URL}/trending/all/day`;
   const SEARCH_URL = `${BASE_URL}/search/movie`;
-  const ID_URL = `${BASE_URL}/movie`;
+const ID_URL = `${BASE_URL}/movie`;
+  
 
   const options = {
     method: 'GET',
@@ -53,5 +54,37 @@ export  async function FetchAPI(query, page=1) {
  }
 }
     
+export async function getMovieCredits(id) {
+  try {
+    const data = await fetch(
+      `${ID_URL}/${id}/credits?api_key=${API_KEY}&language=en-US`,
+      options
+    ).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error();
+    });
+    return data;
+  } catch (error) {
+    alert('Тут зовсім порожньо');
+  }
+}
  
+export async function getMovieReviews(id) {
+  try {
+    const data = await fetch(
+      `${ID_URL}/${id}/reviews?api_key=${API_KEY}&language=en-US`,
+      options
+    ).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error();
+    });
+    return data;
+  } catch (error) {
+    alert('Тут зовсім порожньо');
+  }
+}
   // return Promise.reject(new Error(`За запитом ${query} нічого не знайдено`));
