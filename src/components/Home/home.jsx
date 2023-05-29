@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-use';
+import { Link, useLocation } from 'react-router-dom';
 import {trendMovies} from "utils/searchDataMovie";
 
 const Home = () => {
     const [movies, setMovies] = useState([])
   const location = useLocation()
-  
-    useEffect(() => {
-        trendMovies().then(data => {
-                setMovies(data.results)
-    });
+ 
+  useEffect(() => {
+        trendMovies().then(data => setMovies(data.results));
     }, []);
   return (
     <ul>

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
-import { useLocation } from "react-use";
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { getMovieById } from "utils/searchDataMovie";
-import { BackLink } from "components/Cast/BackLink/backLink";
+import { BackLink } from "components/BackLink/backLink";
 import MovieItem from "../MovieItem/movieItem";
 
 const Movie = () => {
@@ -38,7 +37,6 @@ const Movie = () => {
       </div>
     </div>
   );
-
   }
 
 export default Movie;
