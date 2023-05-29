@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from 'react';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { getMovieById } from "utils/searchDataMovie";
 import { BackLink } from "components/BackLink/backLink";
 import { nanoid } from 'nanoid';
 import MovieItem from "../MovieItem/movieItem";
-import { useRef } from "react";
 
 const Movie = () => {
   const [movie, setMovie] = useState(null);
