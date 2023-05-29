@@ -11,7 +11,7 @@ const MovieItem = ({ movie }) => {
         <img src={poster}  alt="NO poster" />
       </div>
       <div style={{ display: 'block', marginLeft: '20px' }}>
-        <h2>{original_title}</h2>
+        <h2 style={{marginTop: '0'}}>{original_title}</h2>
         <ul>
           <li>Average: {vote_average}</li>
           <li>Overview: {overview}</li>

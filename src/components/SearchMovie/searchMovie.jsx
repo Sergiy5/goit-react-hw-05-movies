@@ -11,13 +11,13 @@ const SearchMovie = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     
-    FetchAPI(query).then(res => {
+    FetchAPI(query.trim()).then(res => {
       return setMovie(res.results);
     });
   }
   
   const handleChange = ({ target }) => {
-    setSearchParams({query: target.value.trim()});
+    setSearchParams({query: target.value});
   };
   
   return (
