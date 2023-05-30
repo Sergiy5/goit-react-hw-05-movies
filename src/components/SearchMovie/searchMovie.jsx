@@ -13,11 +13,12 @@ const SearchMovie = () => {
 
   useEffect(() => {
     if (query) {
-    FetchAPI(query.trim()).then(res => {
+    FetchAPI(query).then(res => {
       return setMovie(res.results);
     });
   }
-})
+  }, [query])
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     const query = e.target.query.value.trim()
