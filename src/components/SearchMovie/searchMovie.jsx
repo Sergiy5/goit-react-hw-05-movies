@@ -2,18 +2,26 @@ import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import {FetchAPI} from "utils/searchDataMovie"
 import ListMovies from 'components/ListMovies/listMovies';
+import { useEffect } from 'react';
 
 
 const SearchMovie = () => {
-    const [movies, setMovie] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [movies, setMovie] = useState([]);
+  const search = searchParams.get('query') ?? '';
+  const [query, setQuery] = useState(search);
+
+  useEffect(() => {
+    if (query) {
     FetchAPI(query.trim()).then(res => {
       return setMovie(res.results);
     });
+  }
+})
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const query = e.target.query.value.trim()
+    setQuery(query);
   }
   
   const handleChange = ({ target }) => {
@@ -21,22 +29,22 @@ const SearchMovie = () => {
   };
   
   return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            name="query"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search movies"
-            value={query}
-            onChange={handleChange}
-            type="text"
-          />
-          <button type="submit">submit</button>
-        </form>
-        {movies ? <ListMovies movies={movies} /> : ''}
-      </div>
-    );
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="query"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search movies"
+          value={search}
+          onChange={handleChange}
+          type="text"
+        />
+        <button type="submit">submit</button>
+      </form>
+      {movies && <ListMovies movies={movies} />}
+    </div>
+  );
     }
 
 export default SearchMovie

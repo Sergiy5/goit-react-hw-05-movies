@@ -9,7 +9,7 @@ const Movie = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
   const location = useLocation()
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/';
   const backLinkHrefRef = useRef(backLinkHref);
 
   useEffect(() => {
@@ -22,18 +22,18 @@ const Movie = () => {
   return (
     <div>
       <BackLink to={backLinkHrefRef.current}>{`<-`} Back to movies</BackLink>
-      <div> {movie ? <MovieItem movie={movie} /> : ''}</div>
+      <div> {movie && <MovieItem movie={movie} />}</div>
       <div>
         <div>
           <h4>Additional Information</h4>
           <ul>
             <li key={nanoid()}>
-              <Link to={'cast'} >
+              <Link to='cast' >
                 Cast
               </Link>
             </li>
             <li key={nanoid()}>
-              <Link to={'reviews'} >
+              <Link to='reviews' >
                 Reviews
               </Link>
             </li>
