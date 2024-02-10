@@ -1,6 +1,6 @@
 
 
-  const API_KEY = 'bed58f4c3dbb6f0a7987e1858ff87c95';
+  const API_KEY = '98e930c2fa74caea64f2026cf70ec413';
   const BASE_URL = 'https://api.themoviedb.org/3';
   const TREND_URL = `${BASE_URL}/trending/all/day`;
   const SEARCH_URL = `${BASE_URL}/search/movie`;
@@ -12,7 +12,7 @@ const ID_URL = `${BASE_URL}/movie`;
     headers: {
       accept: 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZWQ1OGY0YzNkYmI2ZjBhNzk4N2UxODU4ZmY4N2M5NSIsInN1YiI6IjY0NmQwNWJhZDE4NTcyMDE4MDJlOGYyOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4jCqRdZ9sRAbpi5bh6szcuiE2wlzfaZQtIR0L9NKky0',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OGU5MzBjMmZhNzRjYWVhNjRmMjAyNmNmNzBlYzQxMyIsInN1YiI6IjY0NmQwNWJhZDE4NTcyMDE4MDJlOGYyOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gvC078v2ZEDlsUKlhf6XJhVHnGo7gwYMbWV5S3NVSKY',
     },
   };
 
